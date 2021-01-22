@@ -21,10 +21,28 @@ export default function App() {
     if (!currentInputValue) {
       return
     }
-    const item = {id: `${(list.length)}`, name: currentInputValue}
+    const item: ITodoItem = {
+      id: `${(list.length)}`,
+      name: currentInputValue,
+      isComplete: false,
+    }
     list.push(item)
     onChangeList(list)
     onChangeText('')
+  }
+
+  const onToggleHandler = (toggled: ITodoItem) => {
+    const target = list.find(item => item.id === toggled.id)
+    if (target) {
+      target.isComplete = !target.isComplete
+      onChangeList(list.slice())
+    }
+  }
+
+  const onRemoveHandler = (toggled: ITodoItem) => {
+    // todo modal
+    const updatedList = list.filter(item => item.id !== toggled.id)
+    onChangeList(updatedList)
   }
 
   return (
@@ -35,7 +53,11 @@ export default function App() {
           onAddTodo={addTodo}
           onInputChange={currentInputChange}
           value={currentInputValue}/>
-        <TodoItemList items={list}/>
+        <TodoItemList
+          onRemove={onRemoveHandler}
+          onToggle={onToggleHandler}
+          items={list}
+        />
       </View>
     </View>
   )
@@ -58,10 +80,11 @@ const styles = StyleSheet.create({
 })
 
 const INITIAL_TODOS: ITodoItem[] = [
-  {id: '0', name: 'Todo #1'},
-  {id: '1', name: 'Todo #2'},
-  {id: '2', name: 'Todo #3'},
-  {id: '3', name: 'Todo #4'},
-  {id: '4', name: 'Todo #5'},
-  {id: '5', name: 'Todo #6'},
+  {id: '0', name: 'Lorem ipsum dolor sit amet.', isComplete: false},
+  {id: '1', name: 'Animi eligendi libero', isComplete: false},
+  // eslint-disable-next-line max-len
+  {id: '2', name: 'Blanditiis, corporis cumque distinctio ea esse et harum in iste recusandae saepe sapiente temporibus?', isComplete: false},
+  {id: '3', name: 'consectetur adipisicing elit', isComplete: false},
+  {id: '4', name: 'Animi blanditiis fugit', isComplete: false},
+  {id: '5', name: 'At ea obcaecati odio', isComplete: false},
 ]

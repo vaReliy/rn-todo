@@ -1,15 +1,18 @@
 export const TEXTS = {
   LABEL: {
     APP_TITLE: 'Швидкосправи',
-    ADD_TODO_PLACEHOLDER: 'Додайте справу',
   },
   BUTTON: {
-    ADD_TODO: 'Додати',
+    ADD: 'Додати',
+    ADD_PLACEHOLDER: 'Додайте справу',
+    TOGGLE: 'sw',
+    REMOVE: 'Rm',
   },
 }
 
 export const COLOR = {
-  MAIN: '#fbf3ea',
-  BACKGROUND: '#4939aa',
-  TODO_BORDER: '#4939aa',
+  BACKGROUND: '#eeecf9',
+  MAIN: '#4939aa',
+  ALT: '#a89fdf',
+  REMOVE: '#cc00cc',
 }

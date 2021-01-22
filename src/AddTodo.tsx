@@ -14,7 +14,7 @@ export default function AddTodo(props: AddTodoProps) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder={TEXTS.LABEL.ADD_TODO_PLACEHOLDER}
+        placeholder={TEXTS.BUTTON.ADD_PLACEHOLDER}
         onChangeText={text => props.onInputChange(text)}
         onSubmitEditing={() => {
           props.onAddTodo()
@@ -23,8 +23,8 @@ export default function AddTodo(props: AddTodoProps) {
       />
       <Button
         disabled={!props.value}
-        color={COLOR.TODO_BORDER}
-        title={TEXTS.BUTTON.ADD_TODO}
+        color={COLOR.MAIN}
+        title={TEXTS.BUTTON.ADD}
         onPress={() => {
           props.onAddTodo()
         }}/>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderLeftWidth: 0,
     borderBottomWidth: 2,
-    borderColor: COLOR.TODO_BORDER,
+    borderColor: COLOR.MAIN,
     borderWidth: 1,
   },
 })

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     height: 120,
     fontSize: 35,
     fontWeight: 'bold',
-    backgroundColor: COLOR.BACKGROUND,
-    color: COLOR.MAIN,
+    backgroundColor: COLOR.MAIN,
+    color: COLOR.BACKGROUND,
   },
 })
